@@ -20,7 +20,9 @@ const Home = () => {
       if(nowPlaying===-1 || filterChanged){
       setSindex((Number(filteredSongs[0].Id)).toString());
       setNowPlaying(0);
-      audio.play();}
+      audio.play();
+      setFilterChanged(false);
+    }
       else
       audio.play();
     }
@@ -36,7 +38,7 @@ const Home = () => {
     );
     if(isPlaying)
     setIsPlaying(!isPlaying);
-    setFilterChanged(true)
+    setFilterChanged(true);
   };
 
   const handleLanguageToggle = (language) => {
@@ -97,39 +99,47 @@ const Home = () => {
       {/* Render filter options */}
       <div className='filters'>
         <h3 className='title'>The Minimalist Song Player</h3>
-      <div className='filterplate'>
-        <div style={{display:'inline', marginRight:'0.5cm'}}>Genres:</div>
-        {jsonSong.map((song) => song.Genre).filter((value, index, self) => self.indexOf(value) === index).map((genre, index) => (
-          <div key={index} style={{display:'inline', marginRight:'0.5cm'}}>
-            <label>
-              <input
-                type="checkbox"
-                value={genre}
-                checked={selectedGenres.includes(genre)}
-                onChange={() => handleGenreToggle(genre)}
-              />
-              {genre}
-            </label>
+              <div className='row p-0 m-0'>
+                <div className='col-sm-12 col-md-6 col-lg-4 p-0 m-0'>
+                    <div className='filterplate'>
+                      <label className='filtitle'>Genres:</label>
+                      {jsonSong.map((song) => song.Genre).filter((value, index, self) => self.indexOf(value) === index).map((genre, index) => (
+                        <div key={index} style={{display:'inline', marginRight:'0.5cm'}}>
+                          <label>
+                            <input
+                              type="checkbox"
+                              value={genre}
+                              checked={selectedGenres.includes(genre)}
+                              onChange={() => handleGenreToggle(genre)}
+                            />
+                            {genre}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                </div>
+                <div className='col-sm-12 col-lg-4 col-md-6 p-0 m-0'>
+                  <div className='filterplate'>
+                      <label className='filtitle'>Languages:</label>
+                      {jsonSong.map((song) => song.Language).filter((value, index, self) => self.indexOf(value) === index).map((language, index) => (
+                        <div key={index} style={{display:'inline', marginRight:'0.5cm'}}>
+                          <label>
+                              <input
+                                type="checkbox"
+                                value={language}
+                                checked={selectedLanguages.includes(language)}
+                                onChange={() => handleLanguageToggle(language)}
+                              />
+                            {language}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                </div>
+              </div>
+              
           </div>
-        ))}
-      </div>
-      <div className='filterplate'>
-        <div style={{display:'inline', marginRight:'0.5cm'}}>Languages:</div>
-        {jsonSong.map((song) => song.Language).filter((value, index, self) => self.indexOf(value) === index).map((language, index) => (
-          <div key={index} style={{display:'inline', marginRight:'0.5cm'}}>
-            <label>
-                <input
-                  type="checkbox"
-                  value={language}
-                  checked={selectedLanguages.includes(language)}
-                  onChange={() => handleLanguageToggle(language)}
-                />
-              {language}
-            </label>
-          </div>
-        ))}
-      </div>
-      </div>
+
 
       <div className='songdiv'>
         {renderedSongs}
@@ -153,15 +163,11 @@ const Home = () => {
             </button>
         </div>
         <div className='col-lg-9'>
-            <audio className='audioPlayer' autoPlay={true} controls
+            <audio className='audioPlayer' autoPlay={false} controls
             ref={audioRef} 
             onEnded={goNext}
             src={`https://stlyash.github.io/yash-fm/assets/${sindex}.mp3`} />
         </div>
-
-        
-
-        
       </div>
     </div>
   );

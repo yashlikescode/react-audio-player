@@ -3,26 +3,29 @@
   padding:0;
 }
 .filters{
-  height:4cm;
+  height:3cm;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   background-color: 	#d6ddff;
   padding-left:0.5cm;
+  border-radius: 0 0 0.4cm 0.4cm;
 }
 .filters .title{
   width:100%;
   text-align: center;
+  font-family: 'Oswald', sans-serif;
 }
 .songdiv{
   position:fixed;
-  top:4cm;
-  height:calc(100vh - 6cm);
+  top:3cm;
+  height:calc(100vh - 5cm);
   margin-bottom:2cm;
   overflow-y: scroll;
   width:100%;
   padding-left:0.5cm;
+  padding-bottom:0.1cm;
 }
 .player{
   height:2cm;
@@ -32,6 +35,7 @@
   background-color: white;
   padding-left:0.5cm;
   background-color: 	#d6ddff;
+  border-radius:0.4cm 0.4cm 0 0;
 }
 
 .audioPlayer{
@@ -102,13 +106,41 @@
 }
 
 .filterplate{
-  padding:0.2cm;
-  margin-top:0.2cm;
+  padding:0.3cm;
+  margin-top: 0.2cm;
   background-color: #b6c0ee;
   width:fit-content;
   border:none;
   border-radius:0.2cm;
+  display: block;
 }
 .filterplate:hover{
   background-color: #9eaadf;
+}
+.filterplate input{
+  margin-right:0.1cm;
+  transform: translateY(0.04cm);
+}
+.filtitle{
+  display:'inline' !important;
+  margin-right:'0.5cm';
+  margin-right:0.2cm;
+}
+@media only screen and (max-width: 600px) {
+  .player{
+    height:4cm;
+  }
+
+  .songdiv{
+    top:4cm;
+    height:calc(100vh - 8cm);
+    margin-bottom:2cm;
+  }
+
+  .filters{
+    height:4cm;
+  }
+  .filterplate{
+    padding-top:0.2cm;
+  }
 }
