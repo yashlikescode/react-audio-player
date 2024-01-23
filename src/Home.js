@@ -103,7 +103,7 @@ const Home = () => {
               <div className='row p-0 m-0'>
                 <div className='col-sm-12 col-md-6 col-lg-4 p-0 m-0'>
                     <div className='filterplate'>
-                      <label className='filtitle'>Genres:</label>
+                      <label className='filtitle'>Mood:</label>
                       {jsonSong.map((song) => song.Genre).filter((value, index, self) => self.indexOf(value) === index).map((genre, index) => (
                         <div key={index} style={{display:'inline', marginRight:'0.5cm'}}>
                           <label>
@@ -121,7 +121,7 @@ const Home = () => {
                 </div>
                 <div className='col-sm-12 col-lg-4 col-md-6 p-0 m-0'>
                   <div className='filterplate'>
-                      <label className='filtitle'>Languages:</label>
+                      <label className='filtitle'>Language:</label>
                       {jsonSong.map((song) => song.Language).filter((value, index, self) => self.indexOf(value) === index).map((language, index) => (
                         <div key={index} style={{display:'inline', marginRight:'0.5cm'}}>
                           <label>
