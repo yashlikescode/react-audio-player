@@ -135,6 +135,7 @@
     top:4cm;
     height:calc(100vh - 8cm);
     margin-bottom:2cm;
+    padding-bottom:0.2cm;
   }
 
   .filters{
@@ -142,5 +143,10 @@
   }
   .filterplate{
     padding-top:0.2cm;
+  }
+  .audioPlayer{
+    width:100%;
+    padding-left: 2%;
+    padding-right:5%;
   }
 }

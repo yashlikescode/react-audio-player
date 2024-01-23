@@ -60,6 +60,7 @@ const Home = () => {
 
   const playAudio = (audioFileName) => {
     setSindex(audioFileName);
+    setIsPlaying(true);
   };
 
   const renderedSongs = filteredSongs.map((song) => (
@@ -147,7 +148,7 @@ const Home = () => {
 
 
       <div className='player row text-center pt-2 m-0'>
-        <div className='col-lg-3'>
+        <div className='col-lg-3 col-sm-12'>
             <button onClick={goPrev} className='prenex'>
             <svg xmlns="http://www.w3.org/2000/svg" width={'0.4cm'} viewBox="0 0 320 512"><path d="M267.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160L64 241V96c0-17.7-14.3-32-32-32S0 78.3 0 96V416c0 17.7 14.3 32 32 32s32-14.3 32-32V271l11.5 9.6 192 160z"/></svg>
             </button>
@@ -162,8 +163,8 @@ const Home = () => {
             <svg xmlns="http://www.w3.org/2000/svg" width={'0.4cm'} viewBox="0 0 320 512"><path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241V96c0-17.7 14.3-32 32-32s32 14.3 32 32V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V271l-11.5 9.6-192 160z"/></svg>
             </button>
         </div>
-        <div className='col-lg-9'>
-            <audio className='audioPlayer' autoPlay={false} controls
+        <div className='col-lg-9 col-sm-12'>
+            <audio className='audioPlayer' autoPlay={isPlaying} controls
             ref={audioRef} 
             onEnded={goNext}
             src={`https://stlyash.github.io/yash-fm/assets/${sindex}.mp3`} />

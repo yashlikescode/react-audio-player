@@ -17,3 +17,6 @@ function App() {
   );
 }
 export default App
+
+// git push --force origin main
+// npm run build
