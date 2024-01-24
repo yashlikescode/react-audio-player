@@ -20,7 +20,7 @@
 .songdiv{
   position:fixed;
   top:3cm;
-  height:calc(100vh - 5cm);
+  height:calc(100vh - 6cm);
   margin-bottom:2cm;
   overflow-y: scroll;
   width:100%;
@@ -28,7 +28,7 @@
   padding-bottom:0.1cm;
 }
 .player{
-  height:2cm;
+  height:3cm;
   width:100%;
   position:fixed;
   bottom:0;
@@ -129,12 +129,12 @@
 }
 @media only screen and (max-width: 600px) {
   .player{
-    height:4cm;
+    height:5cm;
   }
 
   .songdiv{
     top:4cm;
-    height:calc(100vh - 8cm);
+    height:calc(100vh - 9cm);
     margin-bottom:2cm;
     padding-bottom:0.2cm;
   }
@@ -150,4 +150,58 @@
     padding-left: 2%;
     padding-right:5%;
   }
+}
+
+
+.loading-wave {
+  width: 1cm;
+  height: 0.5cm;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-right:0.2cm;
+}
+
+.loading-bar {
+  width: 20px;
+  height: 10px;
+  margin: 0 0.05cm;
+  background-color: #3498db;
+  border-radius: 5px;
+  animation: loading-wave-animation 1s ease-in-out infinite;
+}
+
+.loading-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-wave-animation {
+  0% {
+    height: 0.2cm;
+  }
+
+  50% {
+    height: 0.5cm;
+  }
+
+  100% {
+    height: 0.2cm;
+  }
+}
+.songName{
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: left;
+  align-items: center;
+  border:1px solid #3498db;
+  margin-bottom:0.2cm;
+  width: 95%;
 }
