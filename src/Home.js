@@ -96,14 +96,17 @@ const Home = () => {
     {
       setSindex((Number(filteredSongs[0].Id)).toString());
       setNowPlaying(0);
+      
     }
     else{setSindex((Number(filteredSongs[nowPlaying+1].Id)).toString());
     setNowPlaying(nowPlaying+1);}
+    setIsPlaying(true);
   };
 
   const shufflenext = () => {
       setSindex((Number(getRandomSong())).toString());
       setNowPlaying(0);
+      setIsPlaying(true);
   };
 
   const goPrev = () => {
@@ -116,6 +119,7 @@ const Home = () => {
       setSindex((Number(filteredSongs[nowPlaying-1].Id)).toString());
       setNowPlaying(nowPlaying-1);
     }
+    setIsPlaying(true);
   };
   return (
     <div>
