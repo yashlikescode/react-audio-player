@@ -123,9 +123,33 @@ const Home = () => {
   };
   return (
     <div>
+      <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="exampleModalLabel">Do You Like The Minimalist Song Player ?</h1>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                  <div>Please send an email to <a href="mailto:kmryashasvi@gmail.com">kmryashasvi@gmail.com</a> or fill <a target='_blank' href='https://forms.gle/9apB2o2c1hHo9xgq9'>this</a> form for any - </div>
+                  <ul>
+                    <li>Song Suggestions</li>
+                    <li>Questions</li>
+                    <li>Feedbacks / Suggestions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
       {/* Render filter options */}
       <div className='filters'>
-        <h3 className='title'>The Minimalist Song Player</h3>
+          <div className='title-bar'>
+              <h3 className='title'>The Minimalist Song Player</h3>
+              <button className='title-button' data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 550"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+              </button>
+          </div>
+
               <div className='row p-0 m-0'>
                 <div className='col-sm-12 col-md-6 col-lg-4 p-0 m-0'>
                     <div className='filterplate'>
@@ -176,11 +200,11 @@ const Home = () => {
       <div className='player row text-center pt-2 m-0'>
 
         <div className='songName'>
-          <div class="loading-wave">
-            <div class="loading-bar"></div>
-            <div class="loading-bar"></div>
-            <div class="loading-bar"></div>
-            <div class="loading-bar"></div>
+          <div className="loading-wave">
+            <div className="loading-bar"></div>
+            <div className="loading-bar"></div>
+            <div className="loading-bar"></div>
+            <div className="loading-bar"></div>
           </div>
           {jsonSong[Number(sindex-1)].Title}
         </div>
@@ -209,6 +233,7 @@ const Home = () => {
             <audio className='audioPlayer' autoPlay={isPlaying} controls
             ref={audioRef} 
             onEnded={shuffling?shufflenext:goNext}
+            onPause={toggleAudio}
             src={`https://stlyash.github.io/yash-fm/assets/${sindex}.mp3`} />
         </div>
       </div>
