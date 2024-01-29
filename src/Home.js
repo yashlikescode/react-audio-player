@@ -131,7 +131,7 @@ const Home = () => {
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
-                  <div>Please send an email to <a href="mailto:kmryashasvi@gmail.com">kmryashasvi@gmail.com</a> or fill <a target='_blank' href='https://forms.gle/9apB2o2c1hHo9xgq9'>this</a> form for any - </div>
+                  <div>Please send an email to <a href="mailto:kmryashasvi@gmail.com">kmryashasvi@gmail.com</a> or fill <a target='_blank' rel="noreferrer" href='https://forms.gle/9apB2o2c1hHo9xgq9'>this</a> form for any - </div>
                   <ul>
                     <li>Song Suggestions</li>
                     <li>Questions</li>
@@ -233,7 +233,6 @@ const Home = () => {
             <audio className='audioPlayer' autoPlay={isPlaying} controls
             ref={audioRef} 
             onEnded={shuffling?shufflenext:goNext}
-            onPause={toggleAudio}
             src={`https://stlyash.github.io/yash-fm/assets/${sindex}.mp3`} />
         </div>
       </div>
