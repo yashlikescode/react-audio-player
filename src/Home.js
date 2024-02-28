@@ -6,6 +6,11 @@ const Home = () => {
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = React.createRef();
+  const [value, setValue] = useState("");
+
+  const handleChangeSearch = (e) => {
+    setValue(e.target.value);
+  };
 
   const [nowPlaying, setNowPlaying] = useState(-1);
 
@@ -55,7 +60,9 @@ const Home = () => {
     (song) =>
       (selectedGenres.length === 0 || selectedGenres.includes(song.Genre)) &&
       (selectedLanguages.length === 0 ||
-        selectedLanguages.includes(song.Language))
+        selectedLanguages.includes(song.Language)) &&
+      (value.trim() === "" ||
+        song.Title.toLowerCase().includes(value.toLowerCase())) //add || to add more filters
   );
 
   function getRandomSong() {
@@ -233,6 +240,19 @@ const Home = () => {
                     </label>
                   </div>
                 ))}
+            </div>
+          </div>
+          <div className="col-sm-12 col-lg-4 col-md-6 p-0 m-0">
+            <div className="filterplate">
+              <label className="filtitle">Search:</label>
+              <form>
+                <input
+                  placeholder=" Start Typing..."
+                  value={value}
+                  onChange={handleChangeSearch}
+                  type="text"
+                />
+              </form>
             </div>
           </div>
         </div>

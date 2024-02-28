@@ -1,200 +1,201 @@
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.filters{
-  height:3cm;
+.filters {
+  height: 3cm;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  background-color: 	#d6ddff;
-  padding-left:0.5cm;
+  background-color: #d6ddff;
+  padding-left: 0.5cm;
   border-radius: 0 0 0.4cm 0.4cm;
 }
-.title-bar{
- width: 100%;
- height:1cm;
+.title-bar {
+  width: 100%;
+  height: 1cm;
 }
-.filters .title{
-  width:100%;
+.filters .title {
+  width: 100%;
   text-align: center;
-  font-family: 'Oswald', sans-serif;
-  font-size:2rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
 }
-.title-button{
-  width:0.7cm;
-  height:0.7cm;
-  border:none;
-  background-color:#d6ddff;
-  position: absolute;
-  right:1cm;
-  top:0.5cm;
-  opacity: 0.7;
-  border-radius:0.35cm;
-}
-
-.songdiv{
-  position:fixed;
-  top:3cm;
-  height:calc(100vh - 6cm);
-  margin-bottom:2cm;
-  overflow-y: scroll;
-  width:100%;
-  padding-left:0.5cm;
-  padding-bottom:0.1cm;
-}
-.player{
-  height:3cm;
-  width:100%;
-  position:fixed;
-  bottom:0;
-  background-color: white;
-  padding-left:0.5cm;
-  background-color: 	#d6ddff;
-  border-radius:0.4cm 0.4cm 0 0;
-}
-
-.audioPlayer{
-  width:80%;
-  padding-left: 10%;
-  padding-right:10%;
-  margin-bottom:0cm;
-}
-
-.prenex{
-  width:1.5cm;
-  height:1.2cm;
-  border-radius:0.7cm;
-  margin: 0 0.2cm 0 0.2cm;
-  background-color: #b6c0ee;
-  border:none;
-}
-
-.prenex:hover{
-  background-color: #8493d6;
-}
-.prenex:active{
-  background-color: #586cc3;
-}
-.playallbutton{
-  width:1.8cm;
-  height:1.5cm;
-  border-radius:0.75cm;
-  margin: 0 0.2cm 0 0.2cm;
-  background-color: #b6c0ee;
-  border:none;
-}
-.playallbutton:hover{
-  background-color: #8493d6;
-}
-
-.playallbutton:active{
-  background-color: #586cc3;
-}
-.songPlayButton{
-  width:1cm;
-  height:1cm;
-  margin-top:0.1cm;
-  border-radius:0.5cm;
+.title-button {
+  width: 0.7cm;
+  height: 0.7cm;
+  border: none;
   background-color: #d6ddff;
-  border:none;
+  position: absolute;
+  right: 1cm;
+  top: 0.5cm;
+  opacity: 0.7;
+  border-radius: 0.35cm;
 }
-.songPlayButton:hover{
+
+.songdiv {
+  position: fixed;
+  top: 3cm;
+  height: calc(100vh - 6cm);
+  margin-bottom: 2cm;
+  overflow-y: scroll;
+  width: 100%;
+  padding-left: 0.5cm;
+  padding-bottom: 0.1cm;
+}
+.player {
+  height: 3cm;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  padding-left: 0.5cm;
+  background-color: #d6ddff;
+  border-radius: 0.4cm 0.4cm 0 0;
+}
+
+.audioPlayer {
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 0cm;
+}
+
+.prenex {
+  width: 1.5cm;
+  height: 1.2cm;
+  border-radius: 0.7cm;
+  margin: 0 0.2cm 0 0.2cm;
   background-color: #b6c0ee;
+  border: none;
 }
-.songPlayButton:active{
+
+.prenex:hover {
   background-color: #8493d6;
 }
-.songPlayButton svg{
+.prenex:active {
+  background-color: #586cc3;
+}
+.playallbutton {
+  width: 1.8cm;
+  height: 1.5cm;
+  border-radius: 0.75cm;
+  margin: 0 0.2cm 0 0.2cm;
+  background-color: #b6c0ee;
+  border: none;
+}
+.playallbutton:hover {
+  background-color: #8493d6;
+}
+
+.playallbutton:active {
+  background-color: #586cc3;
+}
+.songPlayButton {
+  width: 1cm;
+  height: 1cm;
+  margin-top: 0.1cm;
+  border-radius: 0.5cm;
+  background-color: #d6ddff;
+  border: none;
+}
+.songPlayButton:hover {
+  background-color: #b6c0ee;
+}
+.songPlayButton:active {
+  background-color: #8493d6;
+}
+.songPlayButton svg {
   transform: translateX(0.01cm) translateY(-0.05cm);
 }
-.playlogo{
+.playlogo {
   transform: translateX(0.06cm);
 }
-.song-list{
-  border:solid black 1px;
-  margin-top:0.1cm;
-  padding-left:0.2cm;
-  padding-bottom:0.1cm;
-  border-radius:0.2cm;
-  margin-right:0.5cm;
+.song-list {
+  border: solid black 1px;
+  margin-top: 0.1cm;
+  padding-left: 0.2cm;
+  padding-bottom: 0.1cm;
+  border-radius: 0.2cm;
+  margin-right: 0.5cm;
 }
-.song-list span{
-  padding-left:0.2cm;
+.song-list span {
+  padding-left: 0.2cm;
 }
 
-.filterplate{
-  padding:0.3cm;
+.filterplate {
+  padding: 0.3cm;
   margin-top: 0.2cm;
   background-color: #b6c0ee;
-  width:fit-content;
-  border:none;
-  border-radius:0.2cm;
-  display: block;
+  width: fit-content;
+  border: none;
+  border-radius: 0.2cm;
+  display: grid;
+  place-items: center;
+  grid-auto-flow: column;
 }
-.filterplate:hover{
+.filterplate:hover {
   background-color: #9eaadf;
 }
-.filterplate input{
-  margin-right:0.1cm;
+.filterplate input {
+  margin-right: 0.1cm;
   transform: translateY(0.04cm);
 }
-.filtitle{
-  display:'inline' !important;
-  margin-right:'0.5cm';
-  margin-right:0.2cm;
-  font-weight:500;
+.filtitle {
+  display: "inline" !important;
+  margin-right: "0.5cm";
+  margin-right: 0.2cm;
+  font-weight: 500;
 }
 @media only screen and (max-width: 600px) {
-  .player{
-    height:5cm;
+  .player {
+    height: 5cm;
   }
 
-  .songdiv{
-    top:4cm;
-    height:calc(100vh - 10.5cm);
-    margin-bottom:2cm;
-    padding-bottom:0.2cm;
+  .songdiv {
+    top: 5.7cm;
+    height: calc(100vh - 10.7cm);
+    margin-bottom: 2cm;
+    padding-bottom: 0.2cm;
   }
 
-  .filters{
-    height:4cm;
+  .filters {
+    height: 5.7cm;
   }
-  .filterplate{
-    padding-top:0.2cm;
+  .filterplate {
+    padding-top: 0.2cm;
   }
-  .audioPlayer{
-    width:100%;
+  .audioPlayer {
+    width: 100%;
     padding-left: 2%;
-    padding-right:5%;
+    padding-right: 5%;
   }
 
-  .title-button{
-    right:0.5cm;
-    top:0.1cm;
+  .title-button {
+    right: 0.5cm;
+    top: 0.1cm;
     opacity: 0.7;
   }
-  .title-button:hover{
-    background-color:#d6ddff;
+  .title-button:hover {
+    background-color: #d6ddff;
   }
-  .title-button:active{
+  .title-button:active {
     background-color: #586cc3;
   }
-  .prenex:hover{
+  .prenex:hover {
     background-color: #b6c0ee;
   }
-  .playallbutton:hover{
+  .playallbutton:hover {
     background-color: #b6c0ee;
   }
-  .prenex:active{
+  .prenex:active {
     background-color: #586cc3;
   }
-  .playallbutton:active{
+  .playallbutton:active {
     background-color: #586cc3;
   }
 }
-
 
 .loading-wave {
   width: 1cm;
@@ -202,7 +203,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-right:0.2cm;
+  padding-right: 0.2cm;
 }
 
 .loading-bar {
@@ -239,12 +240,12 @@
     height: 0.2cm;
   }
 }
-.songName{
+.songName {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: left;
   align-items: center;
-  border:1px solid #3498db;
-  margin-bottom:0.2cm;
+  border: 1px solid #3498db;
+  margin-bottom: 0.2cm;
   width: 95%;
 }
