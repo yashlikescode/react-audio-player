@@ -251,6 +251,7 @@ const Home = () => {
                   value={value}
                   onChange={handleChangeSearch}
                   type="text"
+                  className="searchText"
                 />
               </form>
             </div>
@@ -333,7 +334,7 @@ const Home = () => {
             controls
             ref={audioRef}
             onEnded={shuffling ? shufflenext : goNext}
-            src={`https://stlyash.github.io/yash-fm/assets/${sindex}.mp3`}
+            src={`https://yashlikescode.github.io/yash-fm/assets/${sindex}.mp3`}
           />
         </div>
       </div>

@@ -147,15 +147,19 @@
   margin-right: "0.5cm";
   margin-right: 0.2cm;
   font-weight: 500;
+  font-size:1rem;
 }
-@media only screen and (max-width: 600px) {
+.searchText{
+  font-size:0.9rem;
+}
+@media only screen and (max-width: 700px) {
   .player {
     height: 5cm;
   }
 
   .songdiv {
     top: 5.7cm;
-    height: calc(100vh - 10.7cm);
+    height: calc(100vh - 12.2cm);
     margin-bottom: 2cm;
     padding-bottom: 0.2cm;
   }
@@ -195,6 +199,9 @@
   .playallbutton:active {
     background-color: #586cc3;
   }
+.filterplate:hover {
+  background-color: #b6c0ee;
+}
 }
 
 .loading-wave {
