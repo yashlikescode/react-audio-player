@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useRef} from "react";
 import jsonSong from "./assets/songs.json";
 
 const Home = () => {
@@ -7,9 +7,11 @@ const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = React.createRef();
   const [value, setValue] = useState("");
+  const searchRef = useRef(null);
 
   const handleChangeSearch = (e) => {
     setValue(e.target.value);
+    searchRef.current.focus();
   };
 
   const [nowPlaying, setNowPlaying] = useState(-1);
@@ -252,8 +254,10 @@ const Home = () => {
                   onChange={handleChangeSearch}
                   type="text"
                   className="searchText"
+                  ref={searchRef}
                 />
               </form>
+              <button className="clearButton" onClick={handleChangeSearch} value={""}>&#10006;</button>
             </div>
           </div>
         </div>
