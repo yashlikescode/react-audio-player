@@ -9,6 +9,21 @@ const Home = () => {
   const [value, setValue] = useState("");
   const searchRef = useRef(null);
 
+  // Clearing search box on alt + c
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.altKey && e.key.toLowerCase() === 'c') {
+        setValue('');
+        searchRef.current.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleChangeSearch = (e) => {
     setValue(e.target.value);
     searchRef.current.focus();
