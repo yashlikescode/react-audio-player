@@ -3,13 +3,13 @@
   padding: 0;
 }
 .filters {
-  height: 3cm;
+  height: max-content;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   background-color: #d6ddff;
-  padding-left: 0.5cm;
+  padding: 0.5cm;
   border-radius: 0 0 0.4cm 0.4cm;
 }
 .title-bar {
@@ -38,22 +38,18 @@
 }
 
 .songdiv {
-  position: fixed;
-  top: 3cm;
-  height: calc(100vh - 6cm);
-  margin-bottom: 2cm;
   overflow-y: scroll;
   width: 100%;
   padding-left: 0.5cm;
   padding-bottom: 0.1cm;
 }
 .player {
-  height: 3cm;
+  height: max-content;
   width: 100%;
   position: fixed;
   bottom: 0;
   background-color: white;
-  padding-left: 0.5cm;
+  padding: 0.5cm;
   background-color: #d6ddff;
   border-radius: 0.4cm 0.4cm 0 0;
 }
@@ -281,7 +277,5 @@
 .search-toggle-open{
   background-color: #b8c2f3;
 }
-.search-toggle-closed{
 
-}
 

@@ -359,14 +359,12 @@ const Home = () => {
           </div>)}
         </div>
       </div>
-
+      
       <div className="songdiv">{renderedSongs}</div>
 
-      <div className="player row text-center pt-2 m-0">
-        <div
-          className="songName"
-          style={isPlaying ? { opacity: 1 } : { opacity: 0 }}
-        >
+      <div className="player row text-center m-0">
+        {isPlaying && (<div
+          className="songName">
           <div className="loading-wave">
             <div className="loading-bar"></div>
             <div className="loading-bar"></div>
@@ -374,7 +372,7 @@ const Home = () => {
             <div className="loading-bar"></div>
           </div>
           {jsonSong[Number(sindex - 1)].Title}
-        </div>
+        </div>)}
 
         <div className="col-lg-3 col-sm-12">
           <button onClick={shuffle} className="prenex">
