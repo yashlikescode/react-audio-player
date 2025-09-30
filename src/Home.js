@@ -1,14 +1,21 @@
-import React, { useState , useRef} from "react";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
 import jsonSong from "./assets/songs.json";
 
 const Home = () => {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = React.createRef();
+  const audioRef = useRef(null);
   const [value, setValue] = useState("");
   const searchRef = useRef(null);
   const [searchOpen, setSearchOpen] = useState(false);
+
+  // New refs & state for dynamic heights
+  const filtersRef = useRef(null);
+  const playerRef = useRef(null);
+  const songDivRef = useRef(null);
+  const [filtersHeight, setFiltersHeight] = useState(0);
+  const [playerHeight, setPlayerHeight] = useState(0);
 
   const toggleSearch = (e) => {
     if (e) e.preventDefault();
@@ -41,8 +48,9 @@ const Home = () => {
       return next;
     });
   };
+
   // Clearing search box on alt + c
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.altKey && e.key.toLowerCase() === 'c') {
         setValue('');
@@ -55,6 +63,29 @@ const Home = () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
+  // Measure filters and player heights and update on resize or layout changes
+  useLayoutEffect(() => {
+    function measure() {
+      const fH = filtersRef.current ? filtersRef.current.offsetHeight : 0;
+      const pH = playerRef.current ? playerRef.current.offsetHeight : 0;
+      setFiltersHeight(fH);
+      setPlayerHeight(pH);
+    }
+
+    // initial measure
+    measure();
+
+    // measure again after a short timeout to account for fonts/async layout
+    const t = setTimeout(measure, 50);
+
+    // update on window resize
+    window.addEventListener("resize", measure);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("resize", measure);
+    };
+  }, [searchOpen, languageOpen, moodOpen, value, selectedGenres, selectedLanguages, isPlaying]);
 
   const handleChangeSearch = (e) => {
     setValue(e.target.value);
@@ -182,6 +213,15 @@ const Home = () => {
     }
     setIsPlaying(true);
   };
+
+  // compute songdiv style based on measured heights
+  const songDivStyle = {
+    // use viewport height as base; adjust by measured heights
+    height: `calc(100vh - ${filtersHeight}px - ${playerHeight}px)`,
+    marginTop: `${filtersHeight}px`,
+    overflowY: "auto"
+  };
+
   return (
     <div>
       <div
@@ -228,7 +268,7 @@ const Home = () => {
         </div>
       </div>
       {/* Render filter options */}
-      <div className="filters">
+      <div className="filters" ref={filtersRef}>
         <div className="title-bar">
           <h1 className="title" style={{ display: "inline" }}>Yash FM</h1>
           {/* Search toggle button (click to open/close) */}
@@ -360,9 +400,11 @@ const Home = () => {
         </div>
       </div>
       
-      <div className="songdiv">{renderedSongs}</div>
+      <div className="songdiv" ref={songDivRef} style={songDivStyle}>
+        {renderedSongs}
+      </div>
 
-      <div className="player row text-center m-0">
+      <div className="player row text-center m-0" ref={playerRef}>
         {isPlaying && (<div
           className="songName">
           <div className="loading-wave">
